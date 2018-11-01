@@ -15,16 +15,16 @@ func main() {
 	go db.c()
 
 	fmt.Println(`
-	Hey folks, this is Gravity, a super hacky decentralized database built on Stellar. It's very crappy and needs a refractor.
-	Definitely DO NOT use this for production. If you feel like helping out, checkout https://github.com/sbsends/gravity.
-	Also, maybe follow @sbsends on twitter. He just got a twitter and is self-conscious about how few followers he has. 
-	Commands:
+Hey folks, this is Gravity, a super hacky decentralized database built on Stellar.
+Definitely DO NOT use this for production.
+If you feel like helping out, checkout https://github.com/sbsends/gravity.
+Also, maybe follow @sbsends on twitter. 
+He just got a twitter and is self-conscious about how few followers he has. 
+Commands:
+put <key> <value>
+get <key>
 
-	put <key> <value>
-	get <key>
-	
-	when you see something like 'syncing: <key>.0' just wait a second and then query. 
-	`)
+When you see something like 'syncing: <key>.0' just wait a second and then query.`)
 
 	for {
 		reader := bufio.NewReader(os.Stdin)
