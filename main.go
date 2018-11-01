@@ -14,7 +14,8 @@ func main() {
 	db, _ := LoadDatabase("GBOHNXALOLI6FXK7ECKKOMNG5FIZ3F25RZDLWRNHOUNHCELACSBYYIM5", "SDTSDIEUASWONDSVPMVTUK22UGJC3BGOUBO3IWMU5ZXSKWFJAFUUMIAT")
 	go db.c()
 
-	fmt.Println(`Hey folks, this is Gravity, a super hacky decentralized database built on Stellar. It's very crappy and needs a refractor.
+	fmt.Println(`
+	Hey folks, this is Gravity, a super hacky decentralized database built on Stellar. It's very crappy and needs a refractor.
 	Definitely DO NOT use this for production. If you feel like helping out, checkout https://github.com/sbsends/gravity.
 	Also, maybe follow @sbsends on twitter. He just got a twitter and is self-conscious about how few followers he has. 
 	Commands:
