@@ -2,8 +2,8 @@ package main
 
 import (
 	"encoding/json"
-	"reflect"
 	"strconv"
+	"sync"
 
 	build "github.com/stellar/go/build"
 	"github.com/stellar/go/clients/horizon"
@@ -15,6 +15,8 @@ type Database struct {
 	Signer  string
 	Account horizon.Account
 }
+
+var mutex = &sync.Mutex{}
 
 // Key is the key being referenced. 56 character max.
 type Key string
@@ -33,9 +35,7 @@ const (
 )
 
 func chunkMap(key string, inputValue interface{}) (map[string][]byte, error) {
-	valueType := reflect.TypeOf(inputValue)
 	keyMap := make(map[string][]byte)
-	keyMap[key+".type"] = []byte(valueType.String())
 
 	rawBytes, err := json.Marshal(inputValue)
 	if err != nil {
