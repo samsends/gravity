@@ -30,12 +30,6 @@ func (db *Database) Put(key string, value interface{}) error {
 func (db *Database) Get(key string) (interface{}, error) {
 	var value []byte
 
-	typeKey := key + ".type"
-	dataType, err := db.pull(typeKey)
-	if err != nil {
-		return nil, err
-	}
-
 	for i := 0; i < maxCount; i++ {
 		itt := key + "." + strconv.Itoa(i)
 		byteData, err := db.pull(itt)
@@ -46,8 +40,6 @@ func (db *Database) Get(key string) (interface{}, error) {
 		}
 		value = append(value, byteData...)
 	}
-
-	fmt.Println(string(dataType))
 	return value, nil
 }
 
@@ -57,4 +49,9 @@ func (db *Database) pull(key string) ([]byte, error) {
 		return nil, err
 	}
 	return returnBytes, nil
+}
+
+func (db *Database) push(key string, value string) {
+	fmt.Println("syncing: " + key)
+	db.Account.Data[key] = value
 }
